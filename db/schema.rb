@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130902004619) do
+ActiveRecord::Schema.define(version: 20130902032416) do
 
   create_table "events", force: true do |t|
     t.string   "Name"
@@ -24,7 +24,10 @@ ActiveRecord::Schema.define(version: 20130902004619) do
     t.integer  "rsvpLimit"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "User_id"
   end
+
+  add_index "events", ["User_id"], name: "index_events_on_User_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
